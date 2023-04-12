@@ -1,0 +1,33 @@
+{
+  "name": "maps-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "debugg": "nodemon --inspect-brk server.js",
+    "b_debugg": "nodemon --inspect-brk server.js",
+    "server": "nodemon --inspect server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "anant",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cassandra-driver": "^4.6.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11",
+    "pg": "^8.7.1",
+    "sequelize": "^5.21.6"
+  },
+  "engines": {
+    "node": "12.1.0",
+    "npm": "6.9.0"
+  }
+}

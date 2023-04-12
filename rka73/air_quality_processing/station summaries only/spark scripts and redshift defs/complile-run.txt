@@ -1,0 +1,72 @@
+
+----------------xxxxx----------------xxxxx----------------xxxxx----------------xxxxx----------------xxxxx----------------
+# AIR Extract (air_extract_df.py) - to remove NA values from dates
+
+# to save in external ssd/hdd directly
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/CO.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/CO_1980_2008_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/NO2.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/NO2_1980_2008_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/NO.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/NO_1980_2008_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/O3.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/O3_1980_2008_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/PM10.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/PM10_1980_2008_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/PM25.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/PM25_1980_2008_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/1980-2008/SO2.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/SO2_1980_2008_cleaned"
+
+
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/CO.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/CO_2009_2020_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/NO2.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/NO2_2009_2020_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/NO.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/NO_2009_2020_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/O3.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/O3_2009_2020_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/PM10.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/PM10_2009_2020_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/PM25.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/PM25_2009_2020_cleaned"
+
+spark-submit air_extract_df.py "/Volumes/RK - T7/big data project data/Annual_Summary/2009-LatestVerified/SO2.csv" "/Volumes/RK - T7/big data project data/raw cleaned files/SO2_2009_2020_cleaned"
+
+
+----------------xxxxx----------------xxxxx----------------xxxxx----------------xxxxx----------------xxxxx----------------
+
+# AIR Transform (air_transform_sql.py) - calculates monthly and annual averages for the air gases
+
+# to save in external ssd/hdd directly
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/CO_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/CO_1980_2008_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/NO2_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/NO2_1980_2008_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/NO_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/NO_1980_2008_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/O3_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/O3_1980_2008_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/PM10_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/PM10_1980_2008_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/PM25_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/PM25_1980_2008_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/SO2_1980_2008_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/SO2_1980_2008_cleaned_stats"
+
+
+
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/CO_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/CO_2009_2020_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/NO2_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/NO2_2009_2020_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/NO_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/NO_2009_2020_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/O3_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/O3_2009_2020_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/PM10_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/PM10_2009_2020_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/PM25_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/PM25_2009_2020_cleaned_stats"
+
+spark-submit air_transform_sql.py "/Volumes/RK - T7/big data project data/raw cleaned files/SO2_2009_2020_cleaned.csv" "/Volumes/RK - T7/big data project data/spark transformed files/SO2_2009_2020_cleaned_stats"

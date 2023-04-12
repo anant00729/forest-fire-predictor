@@ -1,0 +1,41 @@
+SSH to workstations docs/links
+
+
+https://coursys.sfu.ca/2021fa-cmpt-732-g1/pages/ProjectTech
+https://github.com/gregbaker/sfu-docs/blob/master/csil-remote.md 
+
+
+
+------------------------------------------------------------------------------------------
+* Current air quality data map - Air Quality Health Index - Dashboard
+  https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html
+
+* FireSmoke Canada
+    https://firesmoke.ca
+
+* Fire Smoke data
+    What is SMARTFIRE?
+
+    The Satellite Mapping Automated Reanalysis Tool for Fire Incident Reconciliation (SMARTFIRE) is an
+    algorithm and database system that operate within a geographic information system (GIS) framework.
+    SMARTFIRE combines multiple sources of fire information and reconciles them into a unified GIS database.
+    It reconciles fire data from space-borne sensors and ground-based reports,
+    thus drawing on the strengths of both data types while avoiding double-counting.
+      https://firesmoke.ca/smartfire/
+
+      Available Data Sources
+
+      Name	Available Dates
+      CWFIS-GroundReports	2018-01-01 to 2021-10-31
+      CWFIS-Hotspots	2018-03-01 to 2021-10-31
+      A+M+I-band-all	2018-08-17 to 2018-08-24
+      2018-hotspots	2018-08-01 to 2018-08-31
+      A+M+I-band-select	2018-08-17 to 2018-08-24
+      Reconciliation Streams
+
+      Name	Available Dates
+      CWFIS-Hotspots+GroundReports	2018-03-01 to 2021-10-31
+      CWFIS-Hotspots	2018-03-01 to 2021-10-31
+      A+M+I-band-all	2018-08-17 to 2018-08-24
+      A+M+I-band-select	2018-08-17 to 2018-08-24
+      2018-Hotspots	2018-08-01 to 2018-08-31

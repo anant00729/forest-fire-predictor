@@ -1,0 +1,36 @@
+
+# PostgresSQL in RDS credentials
+
+DB instance identifier:  final-averages-summary
+Master username:         postgres_bd1
+Master password:         qwerty123
+
+Endpoint:  final-averages-summary.ci7lwglf7ndo.us-west-2.rds.amazonaws.com
+Port:      9999
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+# Postgres TABLES
+public."CO_1980_2008_stats";
+public."CO_2009_2020_stats";
+
+public."NO2_1980_2008_stats";
+public."NO2_2009_2020_stats";
+
+public."NO_1980_2008_stats";
+public."NO_2009_2020_stats";
+
+public."O3_1980_2008_stats";
+public."O3_2009_2020_stats";
+
+public."PM10_1980_2008_stats";
+public."PM10_2009_2020_stats";
+
+public."PM25_1980_2008_stats";
+public."PM25_2009_2020_stats";
+
+public."SO2_1980_2008_stats";
+public."SO2_2009_2020_stats";

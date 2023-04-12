@@ -1,0 +1,362 @@
+.app-title{
+    font-size: 32px;
+}
+
+/*
+    Page name : year_range_average.py
+*/
+.ff1-wrapper{
+    /*border: 10px solid green;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.year-list-container{
+    /*border: 10px solid yellow;*/
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.graph-container{
+    /*border: 10px solid blue;*/
+    min-height: 400px;
+}
+
+.year-item{
+    /*border: 10px solid purple;*/
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.year-label{
+    /*border: 10px solid tomato;*/
+    cursor: pointer;
+}
+
+.year-range-dropdown-container{
+    /*border: 10px solid lightcoral;*/
+    /*max-width: 500px;*/
+}
+
+
+/*
+    Page name: fire_station_mapping_with_wildfire_events
+*/
+
+.fs-container{
+    margin-top: 64px;
+    display: flex;
+    height: 700px;
+}
+
+.fs-map{
+    /*border: 10px solid blue;*/
+    flex: 3;
+}
+
+.fs-radio-con{
+    padding: 0 8px;
+    /*border: 10px solid green;*/
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.fs-radio{
+    /*border: 10px solid purple;*/
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 20px;
+}
+
+.fs-radio-title{
+    /*border: 10px solid tomato;*/
+    text-align: center;
+}
+
+.fs-radio > label {
+    margin: 10px 0 0 8px;
+}
+
+.fs-radio > label > input {
+    margin-right: 8px;
+}
+
+
+/*
+    Page name: air quality
+*/
+.air-q-main-container{
+    /*border: 10px solid tomato;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.air-q-dd-1-gp{
+    /*border: 10px solid lawngreen;*/
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+
+.air-q-dd-1-wrapper{
+    /*border: 10px solid mediumpurple;*/
+}
+
+.air-q-dd-2-wrapper{
+    /*border: 10px solid deepskyblue;*/
+}
+
+.air-q-dd-1{
+    /*border: 10px solid deeppink;*/
+    width: 500px;
+    height: 56px;
+}
+
+.air-q-dd-2{
+    /*border: 10px solid orangered;*/
+    width: 500px;
+    height: 56px;
+}
+
+.air-q-g-1{
+    /*border: 10px solid saddlebrown;*/
+}
+
+
+/*
+    Page name: air quality maps
+*/
+
+.a-q-map-title-container{
+    display: flex;
+    /*border: 10px solid saddlebrown;*/
+    justify-content: space-between;
+}
+
+.al-q-map-title-container{
+    display: flex;
+    /*border: 10px solid saddlebrown;*/
+    justify-content: space-between;
+    margin-top: -20px;
+}
+
+
+.a-q-map-top-dummy{
+    /*border: 10px solid orangered;*/
+    width:100px;
+    visibility: hidden;
+}
+
+.a-q-map-title{
+    font-size: 2rem;
+    /*border: 10px solid deeppink;*/
+    font-weight: 600;
+}
+
+.a-q-toggle{
+    /*border: 10px solid deepskyblue;*/
+    width:100px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toggle-mode-title-class{
+    margin-top: 8px;
+    text-align: center;
+}
+
+
+/*
+    Page name: fire_station_wildfire_map.py
+*/
+
+.fsw-map-container{
+    /*border: 10px solid deepskyblue;*/
+    display: flex;
+}
+
+.fsw-map-radio-gp{
+    /*border: 20px solid deeppink;*/
+    border: 2px solid rgb(161, 172, 195);;
+    flex:1;
+}
+
+.fsw-map-gp{
+    position: relative;
+    /*border: 20px solid orangered;*/
+    /*border: 10px solid gray;*/
+    border-bottom: 2px solid rgb(161, 172, 195);;
+    border-right:2px solid rgb(161, 172, 195);;
+    border-top: 2px solid rgb(161, 172, 195);;
+    flex:1.1;
+}
+.fsw-map-gp-legend{
+    border: 10px solid gray;
+}
+
+.fsw-station-header{
+    font-size: 20px;
+    text-align: center;
+}
+
+.fswal-station-header{
+    font-size: 20px;
+    text-align: start;
+    margin-left: 20px;
+}
+
+
+.wfs-slider-container{
+    margin-top: 12px;
+    /*border: 10px solid purple;*/
+    display: flex;
+}
+
+.wfs-slider-container-inner{
+    width: 500px;
+    /*border: 10px solid green;*/
+}
+
+.wfs-top-radio-container{
+    /*border: 10px solid blue;*/
+    flex:1;
+}
+
+.wfsal-top-radio-container{
+    flex:1;
+    margin-top: 24px;
+}
+
+.fsw-station-radio{
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 8px;
+    font-size: 14px;
+}
+
+.fswal-station-radio{
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 8px;
+    font-size: 14px;
+}
+
+.fswal-station-radio > label > input {
+    margin-right: 12px;
+}
+
+
+.fsw-station-radio > label{
+    /*margin: 0 auto;*/
+}
+
+.fsw-station-radio > label > input {
+    margin-right: 12px;
+}
+
+
+
+.fs-radio-title{
+    /*border: 10px solid brown;*/
+}
+
+.wfs-range-slider-map{
+    /*border: 10px solid orange;*/
+    margin-top: 24px;
+    padding: 0 !important;
+    margin-left: 8px;
+}
+
+.wfs-slider-op-container{
+    margin-top: 12px;
+    /*border: 10px solid yellow;*/
+    display: flex;
+    justify-content: space-between;
+    margin-left: 8px;
+}
+
+.wfs-slider-op{
+    font-size: 18px;
+    font-weight: 600;
+    /*border: 10px solid blue;*/
+}
+
+.wfs-range-slider-title{
+    font-size: 20px;
+}
+
+.fsw-main-body-con{
+    margin-top: -20px;
+}
+
+.dot-red{
+  height: 25px;
+  width: 25px;
+  background-color: #ff728f;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.dot-yellow{
+  height: 25px;
+  width: 25px;
+  background-color: #FBBF24;
+  border-radius: 50%;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.dot-blue{
+  height: 25px;
+  width: 25px;
+  background-color: #0096d4;
+  border-radius: 50%;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.fswm-map-l-container{
+    display: flex;
+    padding: 6px 8px;
+}
+
+.legend-and-event-count{
+    display: flex;
+}
+
+.al-main-map-container{
+    display: flex;
+    margin-top: 12px;
+}
+
+.al-main-map-c1{
+    flex:1;
+    border-bottom: 2px solid rgb(161, 172, 195);
+    border-left:2px solid rgb(161, 172, 195);
+    border-top: 2px solid rgb(161, 172, 195);
+}
+
+.al-main-map-c2{
+    flex:1;
+    border: 2px solid rgb(161, 172, 195);
+}
+
+.al-main-map-c1-inner{
+    min-height: 500px;
+}
+
+.al-main-map-c2-inner{
+    min-height: 500px;
+}

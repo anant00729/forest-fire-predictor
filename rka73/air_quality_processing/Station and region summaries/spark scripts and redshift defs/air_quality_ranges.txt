@@ -1,0 +1,35 @@
+
+PM25
+  0-3 : Green
+  3-5 Yellow
+  5+ Red
+
+PM10
+  0-9: Green
+  9-11: Yellow
+  11+ Red
+
+O3:
+  0-15: Green
+  15-20: Yellow
+  20+ Red
+
+NO2:
+  0-10: Green
+  10-20: Yellow
+  20+ Red
+
+SO2: (Wrong)
+  0-50: Green
+  50-110: Yellow
+  110+ Red
+
+CO:
+  0-0.5: Green
+  0.5-1: Yellow
+  1+ Red
+
+NO:
+  0-10: Green
+  10-20: Yellow
+  20+ Red

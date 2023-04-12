@@ -1,0 +1,35 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+Line 2833923 has the data like NA,NA,NA,"Chilliwack Airport",NA,"M110517",10,NA,NA,NA,NA,NA,"ENV","02 - Lower
+This means that date format that I had given for the DATE column was erroring out,
+ when I was importing the csv files from s3 to the Redshift.
+
+I found this out using the following query:
+
+Query:
+  FROM stl_load_errors ORDER BY starttime DESC ;
+
+Query Result:
+
+  userid:100
+  slice:1
+  tbl:198196
+  starttime:2021-11-24 03:57:34.880785
+  session:29088
+  query:1359
+  filename:s3://rishabh-kaushal-unique/big data 732 project/1980-2008/CO.csv
+  line_number:2833923
+  colname:date
+  type:date
+  col_length:0
+  position:3
+  raw_line:NA,NA,NA,"Chilliwack Airport",NA,"M110517",10,NA,NA,NA,NA,NA,"ENV","02 - Lower Mainland"
+  raw_field_value:NA
+  err_code:1010
+  err_reason:Error converting text to date
+  is_partial:0
+  start_offset:0
+
+  ------------------------------------------------------------------------------------------------------------------------------------------
+So coded air_extract_df.py which removes the unnecessary rows containing NA values
+This itself reduced the file size. Example, CO.csv file was of about 850 MB. This got reduced to about 500 MB (CO_cleaned.csv)

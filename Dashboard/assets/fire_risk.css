@@ -1,0 +1,14 @@
+.tab-headers {
+    color: darkred;
+    text-align: left;
+}
+
+.row {
+    color: grey;
+}
+
+.row-sub-header {
+    font-size: 25px;
+    color: grey;
+    text-align: left;
+}

@@ -1,0 +1,81 @@
+One of the most substantial problems we faced was processing and reducing the BC Air Quality Data Set from an unmanageable 84 GB to a manageable 8.5 MB.
+The following is the approach we took to do this.
+
+
+First, instead of analyzing all the air quality related parameters, we decided to only use a subset of them.
+Secondly, the datasets contained hourly values from various air monitoring stations.
+However, we did not require that level of detail.
+As a result, we decided to calculate monthly and annual averages for the stations using PySpark (data-frame/SQL) scripts and used these averages instead of the hourly values.
+This significantly reduced the overall size of the datasets.
+
+
+One of the issues that we faced while calculating monthly and annual averages for various air monitoring stations occurred during the “JOIN” queries.
+The main problem was that we were joining the annual and monthly averages in a single query using a “With” subquery.
+We found this query to be inefficient because it was first calculating the annual average from a large data-frame with approximately 5.6 million rows.
+Then, from the same large data-frame, it calculated the monthly averages.
+Performing all of these calculations in a single query made the computation time extremely long.
+To solve this, we calculated the monthly and yearly averages separately,
+and then joined these significantly smaller data-frames together which
+reduced the overall computation time from about 1 hour to about 2 minutes per CSV dataset.
+The final CSV files were then loaded to an AWS S3 bucket and then copied to an AWS Redshift database.
+
+
+Now, the subsequent problem that we faced occurred while importing the cleaned csv files from AWS S3 bucket to the AWS Redshift database.
+The main issue was that the rows that contained NA/NULL in the datasets were causing column type mismatch errors during the import.
+For instance, an integer column in an AWS RedShift database didn’t know how to treat a null or a NA value.
+To resolve this, we coded air_extract_df.py which removed all the rows containing NA and NULL values from all the final datasets.
+
+
+We then wanted to use that Redshift Database to connect to our Dash server for air quality analyses and visualizations.
+We tried various connectors, but nothing worked.
+To solve this, we had to shift the data from the AWS Redshift database to an AWS PostgreSQL (RDS) database.
+We were then able to use the RDS database to connect to Dash by creating our own API.
+Thus, in the future if we have data that is live in some capacity,
+Dash will be able to use that dynamic data directly from the RDS database.
+
+
+Once we connected Dash to the AWS RDS database,
+we realized that just calculating annual averages and monthly averages by the stations was not a promising idea as there were more than 550 distinct stations.
+This meant that we would have to plot 550 different plots to visualize how the air quality varied for each station.
+To solve this, we decided to instead calculate annual averages and monthly averages for the regions
+since there were only 7 distinct regions.
+Thus, we created visualizations for just 7 regions instead of 550 stations.
+------------------------------------------------------------------------------------------------------------------------------------------
+Error for the column mismatch when importing data fro  S3 bucket into Redshift.
+  (Similar issue came up when importing the data into AWS RDS from S3):
+
+  Line 2833923 has the data like NA,NA,NA,"Chilliwack Airport",NA,"M110517",10,NA,NA,NA,NA,NA,"ENV","02 - Lower
+  This means that date format that I had given for the DATE column was erroring out,
+   when I was importing the csv files from s3 to the Redshift.
+
+  I found this out using the following query:
+
+  Query:
+    FROM stl_load_errors ORDER BY starttime DESC ;
+
+  Query Result:
+
+    userid:100
+    slice:1
+    tbl:198196
+    starttime:2021-11-24 03:57:34.880785
+    session:29088
+    query:1359
+    filename:s3://rishabh-kaushal-unique/big data 732 project/1980-2008/CO.csv
+    line_number:2833923
+    colname:date
+    type:date
+    col_length:0
+    position:3
+    raw_line:NA,NA,NA,"Chilliwack Airport",NA,"M110517",10,NA,NA,NA,NA,NA,"ENV","02 - Lower Mainland"
+    raw_field_value:NA
+    err_code:1010
+    err_reason:Error converting text to date
+    is_partial:0
+    start_offset:0
+
+
+
+So coded air_extract_df.py which removes the unnecessary rows containing NA values
+This itself reduced the file size. Example, CO.csv file was of about 850 MB. This got reduced to about 500 MB (CO_cleaned.csv)
+------------------------------------------------------------------------------------------------------------------------------------------

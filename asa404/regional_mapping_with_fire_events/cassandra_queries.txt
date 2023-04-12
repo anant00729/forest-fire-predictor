@@ -1,0 +1,353 @@
+type: string (nullable = true)
+ |-- admin_area_name: string (nullable = true)
+ |-- feature_area_sqm: double (nullable = true)
+ |-- objectid: long (nullable = true)
+ |-- id: long (nullable = false)
+ |-- coord_id: long (nullable = true)
+ |-- coordinates: array (nullable = true)
+ |    |-- element: array (containsNull = true)
+ |    |    |-- element: array (containsNull = true)
+ |    |    |    |-- element: double (containsNull = true)
+ |-- coord_id: long (nullable = true)
+ |-- ploy_coordinates: array (nullable = true)
+ |    |-- element: array (containsNull = true)
+ |    |    |-- element: array (containsNull = true)
+ |    |    |    |-- element: array (containsNull = true)
+ |    |    |    |    |-- element: double (containsNull = true)
+
+
+
+SELECT COUNT(*) FROM history_count_by_year;
+
+DROP TABLE history_count_by_year;
+
+CREATE TABLE history_count_by_year (
+    year INT,
+    count DOUBLE,
+    PRIMARY KEY((year), count)
+) WITH CLUSTERING ORDER BY (count ASC);
+
+CREATE TABLE his_logs_by_year_cause_date (
+    id UUID,
+    creation_method TEXT,
+    feature_code TEXT,
+    objectid INT,
+    feature_area_sqm DOUBLE,
+    feature_length_m DOUBLE,
+    fire_number TEXT,
+    fire_cause TEXT,
+    fire_year TIMESTAMP,
+    fire_label TEXT,
+    fire_size_hectares DOUBLE,
+    source TEXT,
+    gps_track_date TEXT,
+    fire_date TIMESTAMP,
+    coordinates FROZEN<LIST<LIST<LIST<TEXT>>>>,
+    PRIMARY KEY((id), fire_date)
+) WITH CLUSTERING ORDER BY (fire_date ASC);
+
+
+CREATE INDEX fire_date_index ON his_logs_by_year_cause_date (fire_date);
+
+
+
+SELECT count(*) from his_logs_by_year_cause_date WHERE fire_date >= '2013-01-01 00:00:00+0200' AND  fire_date <= '2013-12-12 23:59:00+0200';
+
+CREATE TABLE his_logs (
+  id UUID,
+  load_date TEXT,
+  creation_method TEXT,
+  feature_code TEXT,
+  objectid INT,
+  se_anno_cad_data TEXT,
+  feature_area_sqm DOUBLE,
+  feature_length_m DOUBLE,
+  shape_area INT,
+  shape_len INT,
+  fire_number TEXT,
+  fire_cause TEXT,
+  fire_year INT,
+  fire_label TEXT,
+  fire_size_hectares DOUBLE,
+  source TEXT,
+  gps_track_date TEXT,
+  coordinates LIST<DOUBLE>,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE his_logs (
+    emp_id UUID,
+    emp_name TEXT,
+    emp_age INT,
+    PRIMARY KEY(emp_id)
+);
+
+CREATE TABLE employee (
+    load_date TEXT
+    creation_method TEXT
+    feature_code
+    objectid
+    se_anno_cad_data
+    feature_area_sqm
+    feature_length_m
+    shape_area
+    shape_len
+    fire_number
+    fire_cause
+    fire_year
+    fire_label
+    fire_size_hectares
+    source
+    gps_track_date
+    coordinates
+);
+
+
+CREATE TABLE test_table (
+    language TEXT,
+    users_count TEXT,
+    PRIMARY KEY(language)
+);
+
+
+CREATE TABLE employee(
+ author_name TEXT,
+ book_id UUID,
+ publish_year INT,
+ book_name TEXT,
+ rating FLOAT,
+ PRIMARY KEY ((author_name), publish_year, rating))
+ WITH CLUSTERING ORDER BY(publish_year DESC, rating ASC);
+
+
+
+
+ CREATE TABLE his_logs_ (
+  id UUID,
+  load_date TEXT,
+  creation_method TEXT,
+  feature_code TEXT,
+  objectid INT,
+  se_anno_cad_data TEXT,
+  feature_area_sqm DOUBLE,
+  feature_length_m DOUBLE,
+  shape_area INT,
+  shape_len INT,
+  fire_number TEXT,
+  fire_cause TEXT,
+  fire_year INT,
+  fire_label TEXT,
+  fire_size_hectares DOUBLE,
+  source TEXT,
+  gps_track_date TEXT,
+  coordinates FROZEN<LIST<LIST<DOUBLE>>>,
+  PRIMARY KEY(id, (fire_date))
+) WITH CLUSTERING ORDER BY (fire_date ASC);
+
+
+
+
+select * from test_table;
+language: string (nullable = true)
+ |-- users_count: string (nullable = true)
+ his_year_fire_cause_vs_count
+
+
+CREATE TABLE his_year_fire_cause_vs_count (
+    id UUID,
+    year INT,
+    fire_cause TEXT,
+    count DOUBLE,
+    PRIMARY KEY(id)
+);
+
+
+DROP TABLE his_year_fire_cause_vs_count;
+
+DROP TABLE regional_partition_bc;
+CREATE TABLE regional_partition_bc (
+    id INT,
+    admin_area_name TEXT,
+    type TEXT,
+    feature_area_sqm DOUBLE,
+    objectid DOUBLE,
+    coordinates FROZEN<LIST<LIST<LIST<DOUBLE>>>>,
+    ploy_coordinates FROZEN<LIST<LIST<LIST<LIST<DOUBLE>>>>>,
+    PRIMARY KEY(id)
+);
+
+
+
+CREATE TABLE fire_history (
+    id UUID,
+    coordinates FROZEN<LIST<LIST<LIST<DOUBLE>>>>,
+    creation_method TEXT,
+    feature_area_sqm DOUBLE,
+    feature_code TEXT,
+    feature_length_m DOUBLE,
+    fire_cause TEXT,
+    fire_date TEXT,
+    fire_label TEXT,
+    fire_number TEXT,
+    fire_size_hectares DOUBLE,
+    fire_year DOUBLE,
+    load_date TEXT,
+    objectid DOUBLE,
+    source TEXT,
+    fme_feature_type TEXT,
+    fire_date_timestamp TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+
+
+
+
+CREATE TABLE fire_history (
+    id UUID,
+    creation_method TEXT,
+    feature_code TEXT,
+    objectid INT,
+    feature_area_sqm DOUBLE,
+    feature_length_m DOUBLE,
+    fire_number TEXT,
+    fire_cause TEXT,
+    fire_year TIMESTAMP,
+    fire_label TEXT,
+    fire_size_hectares DOUBLE,
+    source TEXT,
+    gps_track_date TEXT,
+    fire_date TIMESTAMP,
+    coordinates FROZEN<LIST<LIST<LIST<DOUBLE>>>>,
+    PRIMARY KEY((id), fire_date)
+) WITH CLUSTERING ORDER BY (fire_date ASC);
+
+
+
+
+
+df = df.select('col.geometry.coordinates',
+                'col.properties.CREATION_METHOD',
+                'col.properties.FEATURE_AREA_SQM',
+                'col.properties.FEATURE_CODE',
+                'col.properties.FEATURE_LENGTH_M',
+                'col.properties.FIRE_CAUSE',
+                'col.properties.FIRE_DATE',
+                'col.properties.FIRE_LABEL',
+                'col.properties.FIRE_NUMBER',
+                'col.properties.FIRE_SIZE_HECTARES',
+                'col.properties.FIRE_YEAR',
+                'col.properties.GPS_TRACK_DATE',
+                'col.properties.LOAD_DATE',
+                'col.properties.OBJECTID',
+                'col.properties.SE_ANNO_CAD_DATA',
+                'col.properties.SOURCE',
+                'col.properties.VERSION_NUMBER',
+                'col.properties.fme_feature_type')
+# df.printSchema()
+
+for colm in df.columns:
+    df = df.withColumnRenamed(colm, colm.lower())
+
+# print(df.columns)
+
+df1 = df.filter(df['creation_method'].isNull())
+print("df1 >>>>>>")
+print(df1.head(1))
+
+ df2 = df.filter(df['coordinates'].isNull())
+ print("df2 >>>>>>")
+ print(df2.head(1))
+
+ df3 = df.filter(df['creation_method'].isNull())
+ print("df3 >>>>>>")
+ print(df3.head(1))
+
+ df4 = df.filter(df['feature_area_sqm'].isNull())
+ print("df4 >>>>>>")
+ print(df4.head(1))
+
+ df5 = df.filter(df['feature_code'].isNull())
+ print("df5 >>>>>>")
+ print(df5.head(1))
+
+ df6 = df.filter(df['feature_length_m'].isNull())
+ print("df6 >>>>>>")
+ print(df6.head(1))
+
+ df7 = df.filter(df['fire_cause'].isNull())
+ print("df7 >>>>>>")
+ print(df7.head(1))
+
+ df8 = df.filter(df['fire_date'].isNull())
+ print("df8 >>>>>>")
+ print(df8.head(1))
+
+ df9 = df.filter(df['fire_label'].isNull())
+ print("df9 >>>>>>")
+ print(df9.head(1))
+
+ df10 = df.filter(df['fire_number'].isNull())
+ print("df10 >>>>>>")
+ print(df10.head(1))
+
+ df11 = df.filter(df['fire_size_hectares'].isNull())
+ print("df11 >>>>>>")
+ print(df11.head(1))
+
+ df12 = df.filter(df['fire_year'].isNull())
+ print("df12 >>>>>>")
+ print(df12.head(1))
+
+ df13 = df.filter(df['gps_track_date'].isNull())
+ print("df13 >>>>>>")
+ print(df13.head(1))
+
+ df14 = df.filter(df['load_date'].isNull())
+ print("df14 >>>>>>")
+ print(df14.head(1))
+
+ df15 = df.filter(df['objectid'].isNull())
+ print("df15 >>>>>>")
+ print(df15.head(1))
+
+ df16 = df.filter(df['se_anno_cad_data'].isNull())
+ print("df16 >>>>>>")
+ print(df16.head(1))
+
+ df17 = df.filter(df['source'].isNull())
+ print("df17 >>>>>>")
+ print(df17.head(1))
+
+ df18 = df.filter(df['version_number'].isNull())
+ print("df18 >>>>>>")
+ print(df18.head(1))
+
+ df19 = df.filter(df['fme_feature_type'].isNull())
+ print("df19 >>>>>>")
+ print(df19.head(1))
+
+// Problem wala
+
+
+df8 = df.filter(df['fire_date'].isNull())
+print("df8 >>>>>>")
+print(df8.head(1))
+
+
+df13 = df.filter(df['gps_track_date'].isNull())
+print("df13 >>>>>>")
+print(df13.head(1))
+
+
+
+df16 = df.filter(df['se_anno_cad_data'].isNull())
+print("df16 >>>>>>")
+print(df16.head(1))
+
+
+df18 = df.filter(df['version_number'].isNull())
+print("df18 >>>>>>")
+print(df18.head(1))
+
+SELECT count(*) FROM regional_partition_bc;
