@@ -1,7 +1,7 @@
 # Forest Fires
 
 ## Description
-This repository contains the work for the term project for CMPT 732 at Simon Fraser University
+This repository contains the work for the term project for CMPT 732 at Simon Fraser University. The project aims to analyze various factors related to forest fires over time, such as air quality, forest characteristics, and weather data, in order to develop a machine learning model that predicts the daily risk of forest fires, given their increasing frequency and severity due to global warming.
 
 ## Presentation
 
